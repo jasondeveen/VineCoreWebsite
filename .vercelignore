@@ -1,0 +1,12 @@
+# Exclude build artifacts, dependencies, and git from the Vercel upload.
+# Vercel's CLI uploads everything not listed here; without this, local
+# Windows `obj/`/`bin/` folders leak into the Linux container build.
+.git
+.gitignore
+**/node_modules
+**/dist
+**/.angular
+**/bin
+**/obj
+**/out-tsc
+**/tmp

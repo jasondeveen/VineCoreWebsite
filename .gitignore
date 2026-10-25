@@ -27,3 +27,6 @@ appsettings.*.local.json
 # ---- OS / editor ----
 Thumbs.db
 .DS_Store
+
+.vercel
+.env*

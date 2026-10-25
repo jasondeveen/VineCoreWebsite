@@ -120,4 +120,4 @@ The backend container binds `0.0.0.0:$PORT` (default 80) via `backend/Dockerfile
 - [ ] Fill in real SMTP credentials (see above).
 - [ ] Run the Vercel deploy (see [Deploy to Vercel](#deploy-to-vercel)) and point a custom domain at it.
 - [ ] Replace the placeholder copy with final text.
-- [ ] Confirm the logo renders well (header is sized to `h-10`); replace `public/favicon.ico` with a square VineCore icon.
+- [ ] Confirm the logo renders well — header uses the trimmed `vinecore-logo-trim.png` (1444×516) at `h-10`; favicon is a 488×488 VineCore icon.
