@@ -1,0 +1,14 @@
+# Build stage: restore and publish the .NET app.
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /src
+COPY VineCore.Api.csproj ./
+RUN dotnet restore
+COPY . ./
+RUN dotnet publish -c Release --no-restore -o /app/publish /p:UseAppHost=false
+
+# Runtime stage: full ASP.NET image (includes CA certs + ICU, needed for SMTP over TLS).
+FROM mcr.microsoft.com/dotnet/aspnet:10.0
+WORKDIR /app
+COPY --from=build /app/publish ./
+ENV PORT=80 DOTNET_EnableDiagnostics=0
+ENTRYPOINT ["dotnet", "VineCore.Api.dll"]
