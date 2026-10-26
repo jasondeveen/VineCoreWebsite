@@ -56,4 +56,4 @@ Or import the GitHub repo in the Vercel dashboard.
 
 - [ ] Replace the placeholder copy with final text.
 - [ ] Confirm the logo renders well — header uses `vinecore-logo-trim.png` at `h-10`; favicon is a 488×488 VineCore icon.
-- [ ] Add more contact channels (phone, LinkedIn, …) to the Contact section if desired.
+- [ ] Add more contact channels (phone, …) to the Contact section if desired.
