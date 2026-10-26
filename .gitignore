@@ -11,22 +11,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# ---- .NET ----
-**/bin/
-**/obj/
-*.user
-*.suo
-.vs/
-.idea/
-
 # ---- Environment / secrets ----
 .env
 .env.*
-appsettings.*.local.json
+
+# ---- Vercel ----
+.vercel
 
 # ---- OS / editor ----
 Thumbs.db
 .DS_Store
-
-.vercel
-.env*

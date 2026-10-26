@@ -2,7 +2,7 @@
 
 The public website for VineCore, the one-person independent consultancy of Jason,
 an industrial and embedded software engineer. The site introduces the company,
-the work it does, and lets visitors send a message.
+the work it does, and how to get in touch.
 
 ## Language
 
@@ -10,11 +10,6 @@ the work it does, and lets visitors send a message.
 The company itself: a one-person independent consultancy for industrial and
 embedded software.
 _Avoid_: the brand, the firm
-
-**Contact request**:
-A message a visitor submits through the site's contact form (name, email,
-optional subject, and message), delivered to VineCore by email.
-_Avoid_: message, enquiry, lead
 
 **Service**:
 A category of work VineCore offers to clients — e.g. embedded software, or
