@@ -11,3 +11,11 @@ Five canonical triage roles using the default label strings: `needs-triage`, `ne
 ### Domain docs
 
 Single-context: one `GLOSSARY.md` at the repo root plus `docs/adr/`. See `docs/agents/domain.md`.
+
+## Git and deploy permissions
+
+Do not push to GitHub, and do not deploy or promote on Vercel, unless the user
+explicitly instructs it in the current conversation. Local edits, local commits,
+and local builds are fine; remote operations (`git push`, `vercel deploy`,
+`vercel --prod`, `vercel promote`, `vercel rollback`) require an explicit
+request.
