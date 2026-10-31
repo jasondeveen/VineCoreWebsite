@@ -2,23 +2,171 @@
   <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
     <p class="text-sm font-semibold uppercase tracking-widest text-emerald-700">Projects</p>
     <h2 class="mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">Selected work</h2>
-    <div class="mt-10 grid gap-8 md:grid-cols-2">
-      <article class="rounded-xl border border-neutral-200 p-8 shadow-sm">
-        <p class="text-sm font-medium text-neutral-500">Cspect</p>
-        <h3 class="mt-1 text-xl font-semibold text-neutral-900">Inspection-robot firmware</h3>
-        <p class="mt-3 text-neutral-600">
-          Rewrote and extended the firmware of an inspection robot. Details to follow.
-        </p>
+
+    <!-- One work at a time. It advances on its own (7s per photo, 12s when a work
+         has only one) until you use a control. -->
+    <div class="mt-10">
+      <article class="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm">
+        <div class="grid md:grid-cols-2">
+          <!-- Photo carousel for the current work. -->
+          <div class="relative bg-neutral-100">
+            <img
+              [src]="photo().src"
+              [alt]="photo().alt"
+              class="aspect-[4/3] w-full object-cover md:aspect-auto md:h-full"
+            />
+
+            <!-- Progress for the current photo: fills left to right, then the photo cycles. -->
+            @if (autoPlaying()) {
+              <div class="absolute inset-x-0 bottom-0 h-1 bg-neutral-900/10">
+                @for (run of [progressRun()]; track run) {
+                  <span
+                    class="progress-bar block h-full w-full origin-left bg-emerald-600"
+                    [style.animation-duration.ms]="cycleMs()"
+                  ></span>
+                }
+              </div>
+            }
+
+            @if (work().photos.length > 1) {
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-between px-4">
+                <button
+                  type="button"
+                  (click)="prevPhoto()"
+                  aria-label="Previous photo"
+                  class="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white/90 text-neutral-700 shadow-sm transition hover:bg-white hover:text-emerald-700"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  (click)="nextPhoto()"
+                  aria-label="Next photo"
+                  class="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white/90 text-neutral-700 shadow-sm transition hover:bg-white hover:text-emerald-700"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+
+              <div class="absolute inset-x-0 bottom-4 flex justify-center gap-2">
+                @for (item of work().photos; track item.src; let i = $index) {
+                  <button
+                    type="button"
+                    (click)="selectPhoto(i)"
+                    [attr.aria-label]="'Show photo ' + (i + 1) + ' of ' + work().photos.length"
+                    [attr.aria-current]="i === photoIndex() ? 'true' : null"
+                    [class]="
+                      i === photoIndex()
+                        ? 'h-2.5 w-6 rounded-full bg-neutral-900 transition-all'
+                        : 'h-2.5 w-2.5 rounded-full bg-white/90 shadow-sm transition-all hover:bg-white'
+                    "
+                  ></button>
+                }
+              </div>
+
+              <span
+                class="absolute right-4 top-4 rounded-full bg-neutral-900/70 px-2.5 py-1 text-xs font-medium text-white"
+              >
+                {{ photoIndex() + 1 }} / {{ work().photos.length }}
+              </span>
+            }
+          </div>
+
+          <!-- Details for the current work. -->
+          <div class="flex flex-col justify-center p-8">
+            <p class="text-sm font-medium text-neutral-500">{{ work().company }}</p>
+            <h3 class="mt-1 text-xl font-semibold text-neutral-900 sm:text-2xl">
+              {{ work().title }}
+            </h3>
+            <p class="mt-3 text-neutral-600">{{ work().description }}</p>
+          </div>
+        </div>
       </article>
 
-      <article class="rounded-xl border border-neutral-200 p-8 shadow-sm">
-        <p class="text-sm font-medium text-neutral-500">Movatron</p>
-        <h3 class="mt-1 text-xl font-semibold text-neutral-900">Sensor datalogger</h3>
-        <p class="mt-3 text-neutral-600">
-          A datalogger that records measurements from connected sensors and shows the
-          current reading on a display.
-        </p>
-      </article>
+      <!-- Work carousel controls. -->
+      <div class="mt-6 flex items-center justify-center gap-6">
+        <button
+          type="button"
+          (click)="prevWork()"
+          aria-label="Previous work"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition hover:border-emerald-300 hover:text-emerald-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+
+        <div class="flex items-center gap-2">
+          @for (item of works; track item.title; let i = $index) {
+            <button
+              type="button"
+              (click)="selectWork(i)"
+              [attr.aria-label]="'Show work ' + (i + 1) + ': ' + item.title"
+              [attr.aria-current]="i === workIndex() ? 'true' : null"
+              [class]="
+                i === workIndex()
+                  ? 'h-2.5 w-6 rounded-full bg-neutral-900 transition-all'
+                  : 'h-2.5 w-2.5 rounded-full bg-neutral-300 transition-all hover:bg-neutral-400'
+              "
+            ></button>
+          }
+        </div>
+
+        <button
+          type="button"
+          (click)="nextWork()"
+          aria-label="Next work"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition hover:border-emerald-300 hover:text-emerald-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>

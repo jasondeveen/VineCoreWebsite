@@ -1,0 +1,16 @@
+/* Progress line for the current photo. The duration is bound from AUTO_ADVANCE_MS
+   so the bar and the auto-advance timer can never drift apart. */
+@keyframes progress-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.progress-bar {
+  animation-name: progress-grow;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}

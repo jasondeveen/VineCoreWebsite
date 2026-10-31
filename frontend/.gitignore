@@ -39,6 +39,9 @@ testem.log
 /typings
 __screenshots__/
 
+# Full-resolution photo sources, kept locally. The sizes the site ships live in /public.
+/originals
+
 # System files
 .DS_Store
 Thumbs.db

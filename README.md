@@ -55,5 +55,6 @@ Or import the GitHub repo in the Vercel dashboard.
 ## Next steps / TODOs
 
 - [ ] Replace the placeholder copy with final text.
+- [ ] Replace the remaining project photos in `frontend/public/projects/` with real ones (any number per work, referenced from `components/projects/projects.ts`). Shipped photos are 1600px wide; full-resolution originals live in `frontend/originals/projects/` (git-ignored).
 - [ ] Confirm the logo renders well — header uses `vinecore-logo-trim.png` at `h-10`; favicon is a 488×488 VineCore icon.
 - [ ] Add more contact channels (phone, …) to the Contact section if desired.
