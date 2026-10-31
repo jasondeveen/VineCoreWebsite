@@ -54,6 +54,7 @@ Or import the GitHub repo in the Vercel dashboard.
 
 ## Next steps / TODOs
 
+- [ ] Replace the About portrait placeholder in `frontend/src/app/components/about/about.html` (above the LinkedIn card, `aspect-[3/4]`) with a vertical photo — e.g. 900×1200 px at `frontend/public/about/portrait.jpg`.
 - [ ] Replace the placeholder copy with final text.
 - [ ] Replace the remaining project photos in `frontend/public/projects/` with real ones (any number per work, referenced from `components/projects/projects.ts`). Shipped photos are 1600px wide; full-resolution originals live in `frontend/originals/projects/` (git-ignored).
 - [ ] Confirm the logo renders well — header uses `vinecore-logo-trim.png` at `h-10`; favicon is a 488×488 VineCore icon.
