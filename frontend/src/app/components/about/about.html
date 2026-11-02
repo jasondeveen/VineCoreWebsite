@@ -1,6 +1,6 @@
 <section id="about" class="bg-white dark:bg-neutral-950">
   <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-    <div class="grid max-w-2xl gap-10">
+    <div class="mx-auto grid max-w-2xl gap-10">
       <div>
         <p class="text-sm font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
           {{ i18n.t('about.eyebrow') }}
@@ -56,11 +56,12 @@
         </a>
       </div>
 
-      <!-- TODO: replace this placeholder with a portrait photo of Jason.
-           Vertical, e.g. 900 x 1200 px, saved to public/about/portrait.jpg.
-           The placeholder is hidden until that photo exists. To restore it:
-           remove `hidden`, add `flex`, and change the wrapper above back to
-           `grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-16` (drop max-w-2xl). -->
+      <!-- TODO: upload a 3:4 portrait photo (e.g. 900 x 1200 px) to
+           public/about/portrait.jpg, then restore the layout from before the
+           portrait was hidden: remove `hidden`, add `flex`, change the wrapper
+           above back to
+           `grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-16` (drop `mx-auto`
+           and `max-w-2xl`), and replace this placeholder with the photo. -->
       <div
         class="hidden aspect-[3/4] w-full max-w-xs flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-neutral-300 bg-neutral-50 p-6 text-center text-sm text-neutral-400 md:aspect-auto md:h-full dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-500"
       >
