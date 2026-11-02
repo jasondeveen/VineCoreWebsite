@@ -3,7 +3,7 @@
 Public website for VineCore, the one-person industrial & embedded software consultancy.
 
 - **Frontend:** Angular 22 (standalone components + signals), Tailwind CSS v4. A single-page site with anchored sections: Hero, About, Services, Projects, Contact.
-- **Contact:** a `mailto:` link to `info@vinecore.com`. No form, no backend.
+- **Contact:** a `mailto:` link to `info@vinecore.be`. No form, no backend.
 - **Deploy:** static build on Vercel.
 
 ## Structure
