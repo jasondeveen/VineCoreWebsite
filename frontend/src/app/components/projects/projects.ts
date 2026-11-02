@@ -46,7 +46,7 @@ export class Projects {
   /** Language-independent shape; the copy is resolved through `works`. */
   private readonly worksData: readonly WorkData[] = [
     {
-      company: 'CSpect',
+      company: 'Cspect',
       titleKey: 'projects.cspect.title',
       descriptionKey: 'projects.cspect.description',
       photos: [{ src: '/projects/altum-1.jpg', altKey: 'projects.alt.altum' }],

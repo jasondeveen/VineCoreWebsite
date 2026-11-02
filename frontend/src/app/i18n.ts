@@ -31,11 +31,11 @@ const EN = {
   'about.eyebrow': 'About',
   'about.title': 'Software that makes sense.',
   'about.p1':
-    "VineCore is a one-person consultancy. I'm an industrial engineer (Electronics-ICT) with four years as a software engineer at ArcelorMittal.",
+    "VineCore is a one-person consultancy. I'm an industrial engineer (Electronics-ICT) with four years of experience as a software engineer at ArcelorMittal.",
   'about.p2':
     "With AI making it easy to generate more code than anyone can review, I'd rather keep it focused and correct: code you can still reason about a year later and trust in production.",
   'about.p3':
-    "I work hands-on and project-based, from firmware and embedded software up to higher-level software such as desktop tools, APIs, and data processing. I'm comfortable across that whole stack and open to any IT work. I like short lines with the engineers who build the product, and I'm available for project work.",
+    "I work hands-on and project-based, from firmware and embedded software up to higher-level software such as desktop tools, APIs, and data processing. I'm comfortable across that whole stack and open to any IT work. I like short lines of communication with the engineers who build the product, and I'm available for project work.",
   'about.portraitTitle': 'Portrait photo',
   'about.portraitMeta': 'Vertical · 900 × 1200',
 
@@ -43,7 +43,7 @@ const EN = {
   'services.title': 'What I do',
   'services.embedded.title': 'Embedded software',
   'services.embedded.body':
-    'Firmware for microcontrollers in C and C++: control logic, real-time behaviour, and low-level drivers.',
+    'Firmware for microcontrollers in C and C++: control logic, real-time behavior, and low-level drivers.',
   'services.desktop.title': 'Desktop & internal tools',
   'services.desktop.body':
     "Desktop applications and internal tools for day-to-day work — the focused programs that off-the-shelf software doesn't cover.",
@@ -55,7 +55,7 @@ const EN = {
     'Parsing, validating, and reporting data — from one-off conversions to scheduled exports.',
   'services.web.title': 'Web applications',
   'services.web.body':
-    'Internal dashboards and focused web apps, from the interface down to the data behind it.',
+    'Internal dashboards and focused web apps, from the interface down to the data behind them.',
   'services.revamp.title': 'Codebase revamps',
   'services.revamp.body':
     'Picking up an existing codebase and extending or rewriting it without losing what already works.',
@@ -70,10 +70,10 @@ const EN = {
   'projects.showWork': 'Show work {n}: {title}',
   'projects.cspect.title': 'Inspection-robot firmware',
   'projects.cspect.description':
-    'Rewrote and extended the firmware of an inspection robot. Details to follow.',
+    'Rewrote and extended the firmware of an inspection robot.\n\nThe robot uses three actuators to move closer to the wall, extend an arm fitted with a grinder, and apply fluid to make a connection between the wall and a ultrasound sensor. It also uses a motor to drive the grinder. The robot sits atop a telescopic pole and is remote controlled.',
   'projects.movatron.title': 'Sensor datalogger',
   'projects.movatron.description':
-    'A datalogger that records measurements from connected sensors and shows the current reading on a display.',
+    'Helped in the design of a datalogger that records measurements from connected sensors and shows the current reading on a display.',
   'projects.alt.altum': 'Photo of the Altum inspection robot',
   'projects.alt.datalogger': 'Photo of the sensor datalogger',
   'projects.alt.display': 'Photo of the datalogger display',
@@ -103,7 +103,7 @@ const NL: Record<TranslationKey, string> = {
   'nav.themeToDark': 'Schakel naar donkere modus',
   'nav.themeToLight': 'Schakel naar lichte modus',
 
-  'hero.title1': 'Ontworpen systemen',
+  'hero.title1': 'Technisch uitgewerkte systemen',
   'hero.title2': 'Betrouwbare oplossingen',
   'hero.contact': 'Neem contact op',
   'hero.work': 'Bekijk mijn werk',
@@ -111,11 +111,11 @@ const NL: Record<TranslationKey, string> = {
   'about.eyebrow': 'Over mij',
   'about.title': 'Software die klopt.',
   'about.p1':
-    'VineCore is een eenmansadviesbureau. Ik ben industrieel ingenieur (Elektronica-ICT) en werkte vier jaar als software-ingenieur bij ArcelorMittal.',
+    'VineCore is een eenmansadviesbureau. Ik ben industrieel ingenieur (Elektronica-ICT) en heb vier jaar ervaring als software-ingenieur bij ArcelorMittal.',
   'about.p2':
     'AI maakt het makkelijk om meer code te genereren dan iemand kan reviewen. Ik houd het daarom liever gericht en correct: code die je een jaar later nog begrijpt en waarop je in productie durft te vertrouwen.',
   'about.p3':
-    "Ik werk hands-on en per project, van firmware en embedded software tot hogere software zoals desktoptools, API's en dataverwerking. Ik ben thuis in die hele stack en sta open voor elk IT-project. Korte lijnen met de ingenieurs die het product bouwen, daar werk ik graag zo. Ik ben beschikbaar voor projectwerk.",
+    "Ik werk hands-on en per project, van firmware en embedded software tot hogere software zoals desktoptools, API's en dataverwerking. Ik ben thuis in die hele stack en sta open voor elk IT-project. Ik werk graag nauw samen met de ingenieurs die het product bouwen, en ik ben beschikbaar voor projectwerk.",
   'about.portraitTitle': 'Portretfoto',
   'about.portraitMeta': 'Verticaal · 900 × 1200',
 
@@ -126,10 +126,10 @@ const NL: Record<TranslationKey, string> = {
     'Firmware voor microcontrollers in C en C++: besturingslogica, realtimegedrag en low-level drivers.',
   'services.desktop.title': 'Desktop- en interne tools',
   'services.desktop.body':
-    "Desktopapplicaties en interne tools voor het dagelijkse werk — de gerichte programma's die standaardsoftware niet afdekt.",
+    "Desktopapplicaties en interne tools voor het dagelijkse werk — de gerichte programma's die standaardsoftware niet biedt.",
   'services.apis.title': "API's en integraties",
   'services.apis.body':
-    "REST-API's en de lijm tussen bestaande systemen: databases, bestanden en diensten van derden.",
+    "REST-API's en de verbindende laag tussen bestaande systemen: databases, bestanden en diensten van derden.",
   'services.data.title': 'Dataverwerking',
   'services.data.body':
     'Data inlezen, valideren en rapporteren — van eenmalige conversies tot geplande exports.',
@@ -150,10 +150,10 @@ const NL: Record<TranslationKey, string> = {
   'projects.showWork': 'Toon project {n}: {title}',
   'projects.cspect.title': 'Firmware voor inspectierobot',
   'projects.cspect.description':
-    'De firmware van een inspectierobot herschreven en uitgebreid. Details volgen.',
+    'De firmware van een inspectierobot herschreven en uitgebreid.\n\nDe robot gebruikt drie actuatoren om dichter bij de muur te komen, een arm met een slijpmachine uit te schuiven en vloeistof aan te brengen om een verbinding te maken tussen de muur en een sensor. Hij gebruikt ook een motor om de slijpmachine aan te drijven. De robot zit bovenop een telescoopstang en wordt op afstand bediend.',
   'projects.movatron.title': 'Sensordatalogger',
   'projects.movatron.description':
-    'Een datalogger die metingen van aangesloten sensoren vastlegt en de actuele waarde op een display toont.',
+    'Meegeholpen aan het ontwerp van een datalogger die metingen van aangesloten sensoren vastlegt en de actuele waarde op een display toont.',
   'projects.alt.altum': 'Foto van de Altum-inspectierobot',
   'projects.alt.datalogger': 'Foto van de sensordatalogger',
   'projects.alt.display': 'Foto van het display van de datalogger',
