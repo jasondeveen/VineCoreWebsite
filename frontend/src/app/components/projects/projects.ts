@@ -1,4 +1,18 @@
 import { Component, DestroyRef, computed, inject, signal } from '@angular/core';
+import { I18n, TranslationKey } from '../../i18n';
+
+interface WorkPhotoData {
+  src: string;
+  /** Alt text is translated, so the data holds a key rather than a string. */
+  altKey: TranslationKey;
+}
+
+interface WorkData {
+  company: string;
+  titleKey: TranslationKey;
+  descriptionKey: TranslationKey;
+  photos: WorkPhotoData[];
+}
 
 interface WorkPhoto {
   src: string;
@@ -27,40 +41,40 @@ const SINGLE_PHOTO_MS = 12000;
   templateUrl: './projects.html',
 })
 export class Projects {
-  readonly works: Work[] = [
+  readonly i18n = inject(I18n);
+
+  /** Language-independent shape; the copy is resolved through `works`. */
+  private readonly worksData: readonly WorkData[] = [
     {
       company: 'CSpect',
-      title: 'Inspection-robot firmware',
-      description:
-        'Rewrote and extended the firmware of an inspection robot. Details to follow.',
-      photos: [
-        {
-          src: '/projects/altum-1.jpg',
-          alt: 'Photo of the Altum inspection robot',
-        },
-      ],
+      titleKey: 'projects.cspect.title',
+      descriptionKey: 'projects.cspect.description',
+      photos: [{ src: '/projects/altum-1.jpg', altKey: 'projects.alt.altum' }],
     },
     {
       company: 'Movatron',
-      title: 'Sensor datalogger',
-      description:
-        'A datalogger that records measurements from connected sensors and shows the current reading on a display.',
+      titleKey: 'projects.movatron.title',
+      descriptionKey: 'projects.movatron.description',
       photos: [
-        {
-          src: '/projects/datalogger-1.jpg',
-          alt: 'Photo of the sensor datalogger',
-        },
-        {
-          src: '/projects/datalogger-2.jpg',
-          alt: 'Photo of the datalogger display',
-        },
-        {
-          src: '/projects/datalogger-3.jpg',
-          alt: 'Photo of the datalogger in use',
-        },
+        { src: '/projects/datalogger-1.jpg', altKey: 'projects.alt.datalogger' },
+        { src: '/projects/datalogger-2.jpg', altKey: 'projects.alt.display' },
+        { src: '/projects/datalogger-3.jpg', altKey: 'projects.alt.inUse' },
       ],
     },
   ];
+
+  /** Rebuilt when the language changes, so the carousel follows the switch. */
+  readonly works = computed<Work[]>(() =>
+    this.worksData.map((work) => ({
+      company: work.company,
+      title: this.i18n.t(work.titleKey),
+      description: this.i18n.t(work.descriptionKey),
+      photos: work.photos.map((photo) => ({
+        src: photo.src,
+        alt: this.i18n.t(photo.altKey),
+      })),
+    })),
+  );
 
   /** Index of the work currently shown. */
   private readonly workIndexState = signal(0);
@@ -79,7 +93,7 @@ export class Projects {
   readonly autoPlaying = this.autoPlayingState.asReadonly();
   readonly progressRun = this.progressRunState.asReadonly();
 
-  readonly work = computed(() => this.works[this.workIndex()]);
+  readonly work = computed(() => this.works()[this.workIndex()]);
   readonly photo = computed(() => this.work().photos[this.photoIndex()]);
 
   /**
@@ -151,7 +165,7 @@ export class Projects {
   }
 
   private goToWork(index: number): void {
-    const count = this.works.length;
+    const count = this.works().length;
     this.workIndexState.set((index + count) % count);
     // Every work starts on its first photo.
     this.photoIndexState.set(0);

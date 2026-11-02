@@ -1,15 +1,21 @@
-<section id="projects" class="bg-white">
+<section id="projects" class="bg-white dark:bg-neutral-950">
   <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-    <p class="text-sm font-semibold uppercase tracking-widest text-emerald-700">Projects</p>
-    <h2 class="mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">Selected work</h2>
+    <p class="text-sm font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+      {{ i18n.t('projects.eyebrow') }}
+    </p>
+    <h2 class="mt-2 text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-4xl">
+      {{ i18n.t('projects.title') }}
+    </h2>
 
     <!-- One work at a time. It advances on its own (7s per photo, 12s when a work
          has only one) until you use a control. -->
     <div class="mt-10">
-      <article class="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm">
+      <article
+        class="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+      >
         <div class="grid md:grid-cols-2">
           <!-- Photo carousel for the current work. -->
-          <div class="relative bg-neutral-100">
+          <div class="relative bg-neutral-100 dark:bg-neutral-800">
             <img
               [src]="photo().src"
               [alt]="photo().alt"
@@ -18,7 +24,7 @@
 
             <!-- Progress for the current photo: fills left to right, then the photo cycles. -->
             @if (autoPlaying()) {
-              <div class="absolute inset-x-0 bottom-0 h-1 bg-neutral-900/10">
+              <div class="absolute inset-x-0 bottom-0 h-1 bg-neutral-900/10 dark:bg-white/10">
                 @for (run of [progressRun()]; track run) {
                   <span
                     class="progress-bar block h-full w-full origin-left bg-emerald-600"
@@ -33,8 +39,8 @@
                 <button
                   type="button"
                   (click)="prevPhoto()"
-                  aria-label="Previous photo"
-                  class="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white/90 text-neutral-700 shadow-sm transition hover:bg-white hover:text-emerald-700"
+                  [attr.aria-label]="i18n.t('projects.prevPhoto')"
+                  class="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white/90 text-neutral-700 shadow-sm transition hover:bg-white hover:text-emerald-700 dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-emerald-400"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -53,8 +59,8 @@
                 <button
                   type="button"
                   (click)="nextPhoto()"
-                  aria-label="Next photo"
-                  class="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white/90 text-neutral-700 shadow-sm transition hover:bg-white hover:text-emerald-700"
+                  [attr.aria-label]="i18n.t('projects.nextPhoto')"
+                  class="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-white/90 text-neutral-700 shadow-sm transition hover:bg-white hover:text-emerald-700 dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-emerald-400"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -77,12 +83,14 @@
                   <button
                     type="button"
                     (click)="selectPhoto(i)"
-                    [attr.aria-label]="'Show photo ' + (i + 1) + ' of ' + work().photos.length"
+                    [attr.aria-label]="
+                      i18n.t('projects.showPhoto', { n: i + 1, total: work().photos.length })
+                    "
                     [attr.aria-current]="i === photoIndex() ? 'true' : null"
                     [class]="
                       i === photoIndex()
-                        ? 'h-2.5 w-6 rounded-full bg-neutral-900 transition-all'
-                        : 'h-2.5 w-2.5 rounded-full bg-white/90 shadow-sm transition-all hover:bg-white'
+                        ? 'h-2.5 w-6 rounded-full bg-neutral-900 transition-all dark:bg-white'
+                        : 'h-2.5 w-2.5 rounded-full bg-white/90 shadow-sm transition-all hover:bg-white dark:bg-white/50 dark:hover:bg-white/70'
                     "
                   ></button>
                 }
@@ -98,11 +106,13 @@
 
           <!-- Details for the current work. -->
           <div class="flex flex-col justify-center p-8">
-            <p class="text-sm font-medium text-neutral-500">{{ work().company }}</p>
-            <h3 class="mt-1 text-xl font-semibold text-neutral-900 sm:text-2xl">
+            <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">
+              {{ work().company }}
+            </p>
+            <h3 class="mt-1 text-xl font-semibold text-neutral-900 dark:text-neutral-100 sm:text-2xl">
               {{ work().title }}
             </h3>
-            <p class="mt-3 text-neutral-600">{{ work().description }}</p>
+            <p class="mt-3 text-neutral-600 dark:text-neutral-400">{{ work().description }}</p>
           </div>
         </div>
       </article>
@@ -112,8 +122,8 @@
         <button
           type="button"
           (click)="prevWork()"
-          aria-label="Previous work"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition hover:border-emerald-300 hover:text-emerald-700"
+          [attr.aria-label]="i18n.t('projects.prevWork')"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-emerald-600 dark:hover:text-emerald-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -131,16 +141,16 @@
         </button>
 
         <div class="flex items-center gap-2">
-          @for (item of works; track item.title; let i = $index) {
+          @for (item of works(); track item.company; let i = $index) {
             <button
               type="button"
               (click)="selectWork(i)"
-              [attr.aria-label]="'Show work ' + (i + 1) + ': ' + item.title"
+              [attr.aria-label]="i18n.t('projects.showWork', { n: i + 1, title: item.title })"
               [attr.aria-current]="i === workIndex() ? 'true' : null"
               [class]="
                 i === workIndex()
-                  ? 'h-2.5 w-6 rounded-full bg-neutral-900 transition-all'
-                  : 'h-2.5 w-2.5 rounded-full bg-neutral-300 transition-all hover:bg-neutral-400'
+                  ? 'h-2.5 w-6 rounded-full bg-neutral-900 transition-all dark:bg-neutral-100'
+                  : 'h-2.5 w-2.5 rounded-full bg-neutral-300 transition-all hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600'
               "
             ></button>
           }
@@ -149,8 +159,8 @@
         <button
           type="button"
           (click)="nextWork()"
-          aria-label="Next work"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition hover:border-emerald-300 hover:text-emerald-700"
+          [attr.aria-label]="i18n.t('projects.nextWork')"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-emerald-600 dark:hover:text-emerald-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

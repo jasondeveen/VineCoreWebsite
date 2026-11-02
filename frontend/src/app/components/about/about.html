@@ -1,40 +1,31 @@
-<section id="about" class="bg-white">
+<section id="about" class="bg-white dark:bg-neutral-950">
   <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
     <div class="grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-16">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-widest text-emerald-700">About</p>
-        <h2 class="mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-          Software that makes sense.
+        <p class="text-sm font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+          {{ i18n.t('about.eyebrow') }}
+        </p>
+        <h2
+          class="mt-2 text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-4xl"
+        >
+          {{ i18n.t('about.title') }}
         </h2>
-        <div class="mt-6 space-y-4 text-neutral-600">
-          <p>
-            VineCore is a one-person consultancy. I'm an industrial engineer
-            (Electronics-ICT) with four years as a software engineer at
-            ArcelorMittal.
-          </p>
-          <p>
-            With AI making it easy to generate more code than anyone can
-            review, I'd rather keep it focused and correct: code you can still
-            reason about a year later and trust in production.
-          </p>
-          <p>
-            I work hands-on and project-based, from firmware and embedded
-            software up to higher-level software such as desktop tools,
-            APIs, and data processing. I'm comfortable across that whole stack
-            and open to any IT work. I like short lines with
-            the engineers who build the product, and I'm available for project
-            work.
-          </p>
+        <div class="mt-6 space-y-4 text-neutral-600 dark:text-neutral-400">
+          <p>{{ i18n.t('about.p1') }}</p>
+          <p>{{ i18n.t('about.p2') }}</p>
+          <p>{{ i18n.t('about.p3') }}</p>
         </div>
 
         <a
           href="https://www.linkedin.com/in/jasondeveen/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group mt-8 flex items-center justify-between gap-4 rounded-xl border border-neutral-200 bg-neutral-50 p-6 shadow-sm transition hover:border-emerald-300 hover:shadow-md"
+          class="group mt-8 flex items-center justify-between gap-4 rounded-xl border border-neutral-200 bg-neutral-50 p-6 shadow-sm transition hover:border-emerald-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-emerald-700"
         >
           <div class="flex items-center gap-4">
-            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+            <span
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -48,20 +39,27 @@
               </svg>
             </span>
             <div>
-              <p class="text-sm font-medium text-neutral-500">LinkedIn</p>
-              <p class="mt-0.5 text-lg font-semibold text-neutral-900 group-hover:text-emerald-700">
+              <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">LinkedIn</p>
+              <p
+                class="mt-0.5 text-lg font-semibold text-neutral-900 group-hover:text-emerald-700 dark:text-neutral-100 dark:group-hover:text-emerald-400"
+              >
                 jasondeveen
               </p>
             </div>
           </div>
-          <span aria-hidden="true" class="text-xl text-emerald-600 transition group-hover:translate-x-1">&rarr;</span>
+          <span
+            aria-hidden="true"
+            class="text-xl text-emerald-600 transition group-hover:translate-x-1 dark:text-emerald-400"
+          >
+            &rarr;
+          </span>
         </a>
       </div>
 
       <!-- TODO: replace this placeholder with a portrait photo of Jason.
            Vertical, e.g. 900 x 1200 px, saved to public/about/portrait.jpg -->
       <div
-        class="flex aspect-[3/4] w-full max-w-xs flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-neutral-300 bg-neutral-50 p-6 text-center text-sm text-neutral-400 md:aspect-auto md:h-full"
+        class="flex aspect-[3/4] w-full max-w-xs flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-neutral-300 bg-neutral-50 p-6 text-center text-sm text-neutral-400 md:aspect-auto md:h-full dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-500"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -83,8 +81,10 @@
             d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z"
           />
         </svg>
-        <span class="font-medium text-neutral-500">Portrait photo</span>
-        <span>Vertical &middot; 900 &times; 1200</span>
+        <span class="font-medium text-neutral-500 dark:text-neutral-400">
+          {{ i18n.t('about.portraitTitle') }}
+        </span>
+        <span>{{ i18n.t('about.portraitMeta') }}</span>
       </div>
     </div>
   </div>

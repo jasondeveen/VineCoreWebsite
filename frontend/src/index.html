@@ -7,6 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="VineCore — independent industrial and embedded software engineering.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    // Apply the saved theme and language before first paint, so returning
+    // visitors never see a flash of the default light/English page. Keep these
+    // keys in sync with `frontend/src/app/theme.ts` and `i18n.ts`.
+    (function () {
+      try {
+        if (localStorage.getItem('vinecore-theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+        if (localStorage.getItem('vinecore-lang') === 'nl') {
+          document.documentElement.lang = 'nl';
+        }
+      } catch {
+        // Storage can be unavailable (private mode, blocked cookies).
+      }
+    })();
+  </script>
 </head>
 <body>
   <app-root></app-root>

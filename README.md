@@ -2,9 +2,15 @@
 
 Public website for VineCore, the one-person industrial & embedded software consultancy.
 
-- **Frontend:** Angular 22 (standalone components + signals), Tailwind CSS v4. A single-page site with anchored sections: Hero, About, Services, Projects, Contact.
+- **Frontend:** Angular 22 (standalone components + signals), Tailwind CSS v4. A single-page site with anchored sections: Hero, About, Services, Projects, Partners, Contact.
+- **Themes:** light and dark, switched in the header. Defaults to light and remembers the choice.
+- **Languages:** English and Dutch, switched in the header. Defaults to English and remembers the choice.
 - **Contact:** a `mailto:` link to `info@vinecore.be`. No form, no backend.
 - **Deploy:** static build on Vercel.
+
+All site copy lives side by side in `frontend/src/app/i18n.ts`. Theme and language
+are stored in `localStorage` (`vinecore-theme`, `vinecore-lang`); `index.html`
+applies them before Angular boots to avoid a flash of the defaults.
 
 ## Structure
 
